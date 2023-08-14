@@ -68,8 +68,8 @@ input[type="file"] {
   margin-bottom: 20px;
 }
 
-//Styling for enrolled students container
-.enrolled-container {
+Styling for enrolled students container
+#displayArea {
   margin-top: 6%;
   width: 700px;
   height:20px;
