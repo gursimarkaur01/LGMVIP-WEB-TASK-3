@@ -2,7 +2,7 @@ const submitBtn = document.getElementById("SubmitBtn"); // Note the case-sensiti
 const enrolledData = document.getElementById("enrolledData");
 
 submitBtn.addEventListener("click", function () {
-    // Get values of form
+    // Get values from the form fields
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const website = document.getElementById("website").value;
@@ -22,19 +22,47 @@ submitBtn.addEventListener("click", function () {
         skills,
         photo
     };
-    const savedData = localStorage.getItem("enrolledStudents");    // get saveddata from localstorage
+
+    // Retrieve previously saved data from local storage
+    const savedData = localStorage.getItem("enrolledStudents");
     let enrolledStudents = savedData ? JSON.parse(savedData) : [];
-    enrolledStudents.push(userData);                             // Add current data
-    localStorage.setItem("enrolledStudents", JSON.stringify(enrolledStudents));         // Store the updated data local storage
-    document.getElementById("RegistrationForm").reset();        // Clear form
-    displayEnrolledStudents(); // Display data input
+
+    // Add current user data to the array
+    enrolledStudents.push(userData);
+
+    // Store the updated array back in local storage
+    localStorage.setItem("enrolledStudents", JSON.stringify(enrolledStudents));
+
+    // Clear form fields
+    document.getElementById("RegistrationForm").reset();
+
+    // Display enrolled students
+    displayEnrolledStudents();
 });
+
 function displayEnrolledStudents() {
     enrolledData.innerHTML = "";
 
     const savedData = localStorage.getItem("enrolledStudents");
     if (savedData) {
         const enrolledStudents = JSON.parse(savedData);
+
+        const photoInput = document.getElementById("photo");
+        const selectedImage = document.getElementById("selectedImage");
+
+        photoInput.addEventListener("change", function () {
+            const selectedFile = photoInput.files[0];
+            if (selectedFile) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    selectedImage.src = e.target.result;
+                };
+                reader.readAsDataURL(selectedFile);
+            } else {
+                selectedImage.src = "#"; // Clear the image source
+            }
+        });
+
 
         enrolledStudents.forEach(userData => {
             const newRow = document.createElement("tr");
@@ -53,11 +81,14 @@ function displayEnrolledStudents() {
             <strong>Date of Birth:</strong> ${userData.dob}<br>
             <strong>Address:</strong> ${userData.address}<br>
             <strong>Skills:</strong> ${userData.skills.join(", ")}<br><br>
+            
         `;
+
             newRow.appendChild(imageCell);
             newRow.appendChild(descriptionCell);
             enrolledData.appendChild(newRow);
         });
     }
 }
+
 displayEnrolledStudents();

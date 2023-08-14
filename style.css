@@ -1,9 +1,5 @@
-/** {
-  margin: auto;
-  padding:1.8;
-}*/
 h1{
-  margin: 10 10;
+  margin: 10px 10px;
   align-items: center;
   text-align: center;
   font-size: 37px;
@@ -11,11 +7,19 @@ h1{
   font-family:'Courier New', Courier, monospace;
   box-sizing: border-box;
 }
+.form-and-table-container {
+  display:block;
+  justify-content: space-between; /* Distribute space between form and table */
+  align-items: flex-start; /* Align items to the top */
+  margin: 20px auto; /* Adjust margins as needed */
+  max-width: 1200px;
+
+}
 #RegistrationForm {
-  width: 600px;
-  margin: 0 auto;
+  width: 500px;
+  margin-right: 20px;
   padding: 20px;
-  border: 65px solid #b8a1a1;
+  border: 65px solid #480d71;
   background:radial-gradient(180deg, #fff 27%, rgb(70, 159, 218) 40%, rgb(17, 104, 235) 50%);
 }
 label {
@@ -40,12 +44,15 @@ input[type="file"] {
   width: 460px;
   height: 20px;
 }
+#photo:hover{
+  background-color: rgb(193, 216, 216);
+}
 
 #SubmitBtn{
   padding: 10px 20px; /* Adjust padding as needed for button size */
   width: 213px;
   font-size: 26px; /* Adjust font size as needed */
-  background-color: #15569c; /* Button background color */
+  background-color: #224780; /* Button background color */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -58,7 +65,7 @@ input[type="file"] {
   padding: 10px 20px; /* Adjust padding as needed for button size */
   width: 213px;
   font-size: 26px; /* Adjust font size as needed */
-  background-color: #15569c; /* Button background color */
+  background-color: #224780; /* Button background color */
   color: #fff; /* Button text color */
   border: none;
   border-radius: 5px;
@@ -67,38 +74,57 @@ input[type="file"] {
   height: 59px;
   margin-bottom: 20px;
 }
-
-Styling for enrolled students container
-#displayArea {
-  margin-top: 6%;
-  width: 700px;
-  height:20px;
+#SubmitBtn:hover, #ResetBtn:hover {
+  background-color: #051d35; /* Change background color on hover */
 }
- Styling for enrolled students table /
+
+.enrolled-container {
+  margin-left: 30px;
+  margin-top: 26px;
+  width: 700px;
+  height:auto;
+  padding-left: 20px;
+}
 #enrolledTable {
   width: 100%;
+  margin-right: 10%;
   border-collapse: collapse;
 }
 
 #enrolledTable th, #enrolledTable td {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 4px solid #131111;
+  margin: 0;
   text-align: left;
 }
-
-/* Styling for form and table headings /
 h1, h2 {
-  font-size: 20px;
+  font-size: 28px;
   margin-bottom: 10px;
 }
-
-/* Styling for images in the table /
 .enrolledTable img {
   max-width: 50px;
   max-height: 50px;
 }
-*/
+
+/*
 body{
   background:radial-gradient(180deg, #fff 27%, rgb(70, 159, 218) 40%, rgb(17, 104, 235) 50%);
 
+}*/
+
+@media screen and (max-width: 700px) {
+  .form-and-table-container {
+    flex-direction: column; /* Stack elements in a column */
+    align-items: center;
+  }
+
+  .RegistrationForm {
+    margin-right: 0; /* Remove right margin for small screens */
+  }
+
+  .enrolled-container {
+    margin-top: 20;
+    padding-right: 0; /* Remove top margin for small screens */
+    width: 100%;
+  }
 }
