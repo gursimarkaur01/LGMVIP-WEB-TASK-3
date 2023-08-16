@@ -9,8 +9,8 @@ h1{
 }
 .form-and-table-container {
   display:block;
-  justify-content: space-between; /* Distribute space between form and table */
-  align-items: flex-start; /* Align items to the top */
+  justify-content: space-between; 
+  align-items: flex-start;
   margin: 20px auto;
   max-width: 1200px;
 
