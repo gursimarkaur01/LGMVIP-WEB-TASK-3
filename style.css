@@ -11,7 +11,7 @@ h1{
   display:block;
   justify-content: space-between; /* Distribute space between form and table */
   align-items: flex-start; /* Align items to the top */
-  margin: 20px auto; /* Adjust margins as needed */
+  margin: 20px auto;
   max-width: 1200px;
 
 }
@@ -47,12 +47,11 @@ input[type="file"] {
 #photo:hover{
   background-color: rgb(193, 216, 216);
 }
-
 #SubmitBtn{
-  padding: 10px 20px; /* Adjust padding as needed for button size */
+  padding: 10px 20px;
   width: 213px;
-  font-size: 26px; /* Adjust font size as needed */
-  background-color: #224780; /* Button background color */
+  font-size: 26px;
+  background-color: #224780; 
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -62,11 +61,11 @@ input[type="file"] {
   margin-bottom: 20px;
 }
 #ResetBtn{
-  padding: 10px 20px; /* Adjust padding as needed for button size */
+  padding: 10px 20px; 
   width: 213px;
-  font-size: 26px; /* Adjust font size as needed */
-  background-color: #224780; /* Button background color */
-  color: #fff; /* Button text color */
+  font-size: 26px; 
+  background-color: #224780; 
+  color: #fff; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -75,9 +74,8 @@ input[type="file"] {
   margin-bottom: 20px;
 }
 #SubmitBtn:hover, #ResetBtn:hover {
-  background-color: #051d35; /* Change background color on hover */
+  background-color: #051d35; 
 }
-
 .enrolled-container {
   margin-left: 30px;
   margin-top: 26px;
@@ -90,7 +88,6 @@ input[type="file"] {
   margin-right: 10%;
   border-collapse: collapse;
 }
-
 #enrolledTable th, #enrolledTable td {
   padding: 8px;
   border: 4px solid #131111;
@@ -107,17 +104,15 @@ h1, h2 {
 }
 @media screen and (max-width: 700px) {
   .form-and-table-container {
-    flex-direction: column; /* Stack elements in a column */
+    flex-direction: column;
     align-items: center;
   }
-
   .RegistrationForm {
-    margin-right: 0; /* Remove right margin for small screens */
+    margin-right: 0; 
   }
-
   .enrolled-container {
     margin-top: 20;
-    padding-right: 0; /* Remove top margin for small screens */
+    padding-right: 0; 
     width: 100%;
   }
 }
