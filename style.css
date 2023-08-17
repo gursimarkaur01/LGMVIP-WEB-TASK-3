@@ -15,14 +15,14 @@ h1{
   justify-content: space-between; 
   align-items: flex-start; 
   margin: 20px auto; 
-  min-width: 470px;
+  min-width: 300px;
 }
 #RegistrationForm {
   width: 38%;
   height: max-content;
   max-height: 38%;
   padding: 12px;
-  border: 49px solid #480d71;
+  border: 44px solid #480d71;
 }
 label {
   display:contents;
