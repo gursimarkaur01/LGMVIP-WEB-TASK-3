@@ -1,5 +1,5 @@
-body{
-  background:radial-gradient(180deg, #729ff3 27%, rgb(8, 103, 166) 40%, rgb(59, 59, 233) 50%);
+body {
+  background: radial-gradient(260deg,#729ff3 27%,rgb(8, 103, 166) 40%,rgb(59, 59, 233) 50%);
 }
 h1{
   margin: 10px 10px;
@@ -15,16 +15,15 @@ h1{
 }
 .form-and-table-container {
   display:block;
-  justify-content: space-between; /* Distribute space between form and table */
-  align-items: flex-start; /* Align items to the top */
-  margin: 20px auto; /* Adjust margins as needed */
-  max-width: 1200px;
-
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin: 20px auto; 
+  min-width: 470px;
 }
 #RegistrationForm {
-  width: 590px;
+  width: 38%;
   height: max-content;
-  /*margin-right: 0px;/*10*/
+  max-height: 38%;
   padding: 12px;
   border: 49px solid #480d71;
 }
@@ -57,10 +56,9 @@ input[type="file"] {
   width: 20px;
   margin: 10px;
 }
-
 #SubmitBtn{
   padding: 10px 20px; /* Adjust padding as needed for button size */
-  width: 213px;
+  width: 210px;
   font-size: 26px; /* Adjust font size as needed */
   background-color: #224780; /* Button background color */
   color: #fff;
@@ -73,14 +71,14 @@ input[type="file"] {
 }
 #ResetBtn{
   padding: 10px 20px; /* Adjust padding as needed for button size */
-  width: 213px;
+  width: 210px;
   font-size: 26px; /* Adjust font size as needed */
   background-color: #224780; /* Button background color */
   color: #fff; /* Button text color */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 8px;
   height: 59px;
   margin-bottom: 20px;
 }
@@ -97,12 +95,31 @@ input[type="file"] {
 }
 */
 #enrolledTable{
-  width: 50%;
+  width: 60%;
   border-collapse: collapse;
-  margin-left: 100px;
+  margin-left: 56px;
+  max-width: 50%;
+  height: max-content;
 }
 
-#enrolledTable th, #enrolledTable td {
+.description-cell {
+  width: 200px; /* Set the fixed width for the description cell */
+  max-width: 590px;
+ } /* Add a max-width to prevent overflow on small screens /
+  word-wrap: break-word; /* Allow long words to break and wrap within the container /
+  white-space: normal; /* Allow text to wrap within the container /
+}
+*/
+#enrolledTable th{
+  width: auto;
+  padding: 8px;
+  border: 4px solid #131111;
+  margin: 0px;
+  font-size:33px;
+  text-align: center;
+}
+#enrolledTable td {
+  width: auto;
   padding: 8px;
   border: 4px solid #131111;
   margin: 0px;
@@ -110,27 +127,44 @@ input[type="file"] {
 }
 h1, h2 {
   font-size: 28px;
-  /*margin-bottom: 10px;*/
 }
 .enrolledTable img {
-  width: 20px;
+  width: 140px;
   height: 20px;
 }
 
+#enrolledTable td.description-cell {
+  width: 40%; /* Adjust the width as needed */
+}
 
+/* Adjust the width of the image cell */
+#enrolledTable td.image-cell {
+  width: 40%; /* Adjust the width as needed */
+}
+
+#dlt{
+  width:max-content;
+}
+.delete-button{
+  margin: 3px ;
+  background-color: #dd1616;
+  width: max-content;
+  height: 35px;
+  font-weight: 500;
+}
 @media screen and (max-width: 700px) {
   .form-and-table-container {
     flex-direction: row; /* Stack elements in a column */
     align-items: center;
   }
-
   .RegistrationForm {
     margin-right: 10px;
-    margin-left: 10;
+    margin-left: 10; /* Remove right margin for small screens */
   }
   .enrolled-container {
-    padding-right: 0; 
-    width: 100%;
-    margin: left 40px;
+    /*margin-top: 20;*/
+    padding-right: 0; /* Remove top margin for small screens */
+    width: 68%;
+    margin-left:30px;
   }
 }
