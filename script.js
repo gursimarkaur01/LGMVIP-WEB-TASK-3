@@ -58,8 +58,8 @@ function displayEnrolledStudents() {
             imageElement.src = userData.photo;
             imageElement.alt = "Student Photo";
             imageElement.className = "student-photo"; 
-            imageElement.style.width = "240px"; // Set image width
-            imageElement.style.height = "185px"; // Set image height
+            imageElement.style.width = "261px"; // Set image width
+            imageElement.style.height = "210px"; // Set image height
             imageCell.appendChild(imageElement);
 
             const descriptionCell = document.createElement("td");
@@ -87,6 +87,7 @@ function displayEnrolledStudents() {
 
     }
 }
+
 function handleDelete(event) {
     const index = event.target.getAttribute("data-index");
     const savedData = localStorage.getItem("enrolledStudents");
@@ -97,4 +98,5 @@ function handleDelete(event) {
         displayEnrolledStudents(); // Refresh the displayed list
     }
 }
+
 displayEnrolledStudents();
