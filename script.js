@@ -2,7 +2,6 @@ const submitBtn = document.getElementById("SubmitBtn");
 const enrolledData = document.getElementById("enrolledData");
 
 submitBtn.addEventListener("click", function () {
-    // Get values from the form fields
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const website = document.getElementById("website").value;
@@ -25,21 +24,11 @@ submitBtn.addEventListener("click", function () {
         skills,
         photo: photoUrl
     };
-
-    // Retrieve previously saved data from local storage
     const savedData = localStorage.getItem("enrolledStudents");
     let enrolledStudents = savedData ? JSON.parse(savedData) : [];
-
-    // Add current user data to the array
     enrolledStudents.push(userData);
-
-    // Store the updated array back in local storage
     localStorage.setItem("enrolledStudents", JSON.stringify(enrolledStudents));
-
-    // Clear form fields
     document.getElementById("RegistrationForm").reset();
-
-    // Display enrolled students
     displayEnrolledStudents();
 });
 
@@ -58,8 +47,8 @@ function displayEnrolledStudents() {
             imageElement.src = userData.photo;
             imageElement.alt = "Student Photo";
             imageElement.className = "student-photo"; 
-            imageElement.style.width = "261px"; // Set image width
-            imageElement.style.height = "210px"; // Set image height
+            imageElement.style.width = "261px"; 
+            imageElement.style.height = "210px";
             imageCell.appendChild(imageElement);
 
             const descriptionCell = document.createElement("td");
@@ -74,29 +63,24 @@ function displayEnrolledStudents() {
                 <strong>Skills:</strong> ${userData.skills.join(", ")}<br>
                 <button class="delete-button" data-index="${index}">Delete</button>
             `;
-
             newRow.appendChild(imageCell);
             newRow.appendChild(descriptionCell);
             enrolledData.appendChild(newRow);
         });
-
         const deleteButtons = document.querySelectorAll(".delete-button");
         deleteButtons.forEach(button => {
             button.addEventListener("click", handleDelete);
         });
-
     }
 }
-
 function handleDelete(event) {
     const index = event.target.getAttribute("data-index");
     const savedData = localStorage.getItem("enrolledStudents");
     if (savedData) {
         const enrolledStudents = JSON.parse(savedData);
-        enrolledStudents.splice(index, 1); // Remove the selected entry
+        enrolledStudents.splice(index, 1);
         localStorage.setItem("enrolledStudents", JSON.stringify(enrolledStudents));
-        displayEnrolledStudents(); // Refresh the displayed list
+        displayEnrolledStudents();
     }
 }
-
 displayEnrolledStudents();
