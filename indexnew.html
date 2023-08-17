@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="new">
         <form id="RegistrationForm">
-            <legend><h1>STUDENT REGISTRATION FORM</h1></legend>
-            <fieldset>      
-                <div class="form-and-table-container">
-                    <form id="RegistrationForm">
-
+            <legend>
+                <h1>STUDENT REGISTRATION FORM</h1>
+            </legend>
+            <fieldset><div class="form-and-table-container">
                     <label for="name">Name:</label>
                     <input type="text" id="name" required>
                 </div>
@@ -36,7 +36,7 @@
                 <div>
                     <label for="dob">Date Of Birth:</label>
                     <input type="date" id="dob">
-                </div><br>
+                </div>
                 <div>
                     <label for="address">Address:</label>
                     <input type="text" id="address">
@@ -56,28 +56,23 @@
                     <label for="PYTHON">PYTHON</label>
                 </div><br>
                 <div>
-                    <label for="photo">Photo:</label>
+                    <label for="photo" name="photo">Photo:</label>
                     <input type="file" id="photo" required>
-                </div><br><br><br>
+                </div><br>
                 <div>
                     <button type="button" id="SubmitBtn">Enroll Student</button>
                     <button type="reset" id="ResetBtn">Reset</button>
                 </div>
             </fieldset>
         </form>
-    <div id="displayArea"></div>
-    <div class="enrolled-container">
-        <h2>Enrolled Students</h2>
+
         <table id="enrolledTable">
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody id="enrolledData"></tbody>
+            <th colspan="2">Enrolled Student</th>
+            <tr><b><th>Image</th>
+                <th>Description</th></b></tr>
+            <tbody id="enrolledData"></tbody>
         </table>
-      </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

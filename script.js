@@ -22,7 +22,7 @@ submitBtn.addEventListener("click", function () {
         skills,
         photo
     };
-
+    
     // Retrieve previously saved data from local storage
     const savedData = localStorage.getItem("enrolledStudents");
     let enrolledStudents = savedData ? JSON.parse(savedData) : [];
@@ -46,28 +46,11 @@ function displayEnrolledStudents() {
     const savedData = localStorage.getItem("enrolledStudents");
     if (savedData) {
         const enrolledStudents = JSON.parse(savedData);
-
-        const photoInput = document.getElementById("photo");
-        const selectedImage = document.getElementById("selectedImage");
-
-        photoInput.addEventListener("change", function () {
-            const selectedFile = photoInput.files[0];
-            if (selectedFile) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    selectedImage.src = e.target.result;
-                };
-                reader.readAsDataURL(selectedFile);
-            } else {
-                selectedImage.src = "#"; // Clear the image source
-            }
-        });
-
-
         enrolledStudents.forEach(userData => {
             const newRow = document.createElement("tr");
             const imageCell = document.createElement("td");
             const imageElement = document.createElement("img");
+            imageCell.innerHTML=`<strong>photo:</strong><br>`
             imageElement.src = userData.photo;
             imageElement.alt = "Student Photo";
             imageCell.appendChild(imageElement);
@@ -80,8 +63,7 @@ function displayEnrolledStudents() {
             <strong>Gender:</strong> ${userData.gender}<br>
             <strong>Date of Birth:</strong> ${userData.dob}<br>
             <strong>Address:</strong> ${userData.address}<br>
-            <strong>Skills:</strong> ${userData.skills.join(", ")}<br><br>
-            
+            <strong>Skills:</strong> ${userData.skills.join(", ")}<br>
         `;
 
             newRow.appendChild(imageCell);
